@@ -1,0 +1,47 @@
+#Component Info
+info:
+  component: zuul-service
+
+#Spring Application Name 
+spring:
+  application:
+    name: zuul-service
+
+#Server Port
+server:
+  port: 8080
+
+#Endpoints 
+endpoints:
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+  health:
+    sensitive: false
+
+#Zuul routes active 
+zuul:
+  routes:
+    user-api:
+      path: /api/user/**
+      serviceId: stationerycontrol-user-api
+      stripPrefix: false
+    certificate-api:
+      path: /api/certificate/**
+      serviceId: stationerycontrol-certificate-api
+      stripPrefix: false
+    delivery-api:
+      path: /api/delivery/**
+      serviceId: stationerycontrol-delivery-api
+      stripPrefix: false
+
+#Eureka Instance ID
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8081/eureka/
+  instance:
+    instanceId: ${spring.application.name}:${server.port}

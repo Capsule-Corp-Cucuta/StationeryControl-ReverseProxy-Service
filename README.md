@@ -4,7 +4,7 @@ This project was generated with [Spring Initializr](https://start.spring.io/) ve
 
 ## Development server
 
-Run `mvn clean install spring-boot:run` for a dev server. Navigate to `http://localhost:8081/`.
+Run `mvn clean install spring-boot:run` for a dev server. Navigate to `http://localhost:8080/`.
 
 ## Build
 

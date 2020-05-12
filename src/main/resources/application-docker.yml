@@ -22,6 +22,8 @@ endpoints:
 
 #Zuul routes active 
 zuul:
+  sensitiveHeaders:
+  ignored-headers: Access-Control-Allow-Credentials, Access-Control-Allow-Origin
   routes:
     user-api:
       path: /api/user/**
@@ -45,3 +47,6 @@ eureka:
       defaultZone: http://discovery-service:8081/eureka/
   instance:
     instanceId: ${spring.application.name}:${server.port}
+
+ribbon:
+  ReadTimeout: 12000

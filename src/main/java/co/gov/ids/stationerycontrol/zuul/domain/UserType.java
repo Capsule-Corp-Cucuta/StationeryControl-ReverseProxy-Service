@@ -1,4 +1,4 @@
-package co.gov.ids.stationerycontrol.zuul.infraestructure.persistence.entities;
+package co.gov.ids.stationerycontrol.zuul.domain;
 
 /**
  * Enum of user types.

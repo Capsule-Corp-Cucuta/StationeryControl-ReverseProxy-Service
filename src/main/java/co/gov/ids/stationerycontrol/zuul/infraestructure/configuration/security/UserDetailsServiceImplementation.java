@@ -11,7 +11,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
-import co.gov.ids.stationerycontrol.zuul.infraestructure.persistence.entities.UserType;
+import co.gov.ids.stationerycontrol.zuul.domain.UserType;
 import co.gov.ids.stationerycontrol.zuul.infraestructure.persistence.entities.UserEntity;
 import co.gov.ids.stationerycontrol.zuul.infraestructure.persistence.repositories.IUserRepository;
 

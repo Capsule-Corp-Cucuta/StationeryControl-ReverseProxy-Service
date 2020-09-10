@@ -1,12 +1,12 @@
 package co.gov.ids.stationerycontrol.zuul.infraestructure.resources;
 
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.security.core.Authentication;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -41,6 +41,9 @@ public class AuthResource {
      * @return jwt.
      */
     @PostMapping
+    @ApiOperation(value = "Login", notes = "Service for authenticate an user")
+    @ApiResponses(value = {@ApiResponse(code = 200, message = "User was authenticated correctly"),
+            @ApiResponse(code = 401, message = "Unauthorized")})
     public ResponseEntity<JasonWebToken> login(@RequestBody LoginDTO dto) {
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(dto.getIdentificationCard(), dto.getPassword())

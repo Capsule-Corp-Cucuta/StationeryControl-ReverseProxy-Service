@@ -4,6 +4,8 @@ import lombok.Data;
 import javax.persistence.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import co.gov.ids.stationerycontrol.zuul.domain.UserType;
+
 /**
  * Class to identify the model of User on database.
  *

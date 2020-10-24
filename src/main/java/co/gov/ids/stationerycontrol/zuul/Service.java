@@ -9,17 +9,12 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.cloud.netflix.feign.EnableFeignClients;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
-/**
- * ReverseProxy Service for stationery control of live births and deaths.
- *
- * @author Sergio Rodríguez
- * @version 0.0.1
- * @since 2020
- */
 @Controller
 @EnableZuulProxy
 @EnableFeignClients
+@EnableDiscoveryClient
 @SpringBootApplication
 public class Service {
 

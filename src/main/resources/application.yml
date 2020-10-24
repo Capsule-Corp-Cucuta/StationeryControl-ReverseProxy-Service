@@ -1,37 +1,19 @@
-#Component Info
 info:
   component: zuul-service
 
-#Spring Application Name 
 spring:
   application:
     name: zuul-service
   profiles:
     active: dev
-  datasource:
-    url: jdbc:h2:file:~/stationerycontrol-user;AUTO_SERVER=TRUE
-    driver-class-name: org.h2.Driver
-    username: sa
-    password:
-  jpa:
-    show-sql: true
-    hibernate:
-      ddl-auto: update
-    properties:
-      hibernate.dialect: org.hibernate.dialect.H2Dialect
-  h2:
-    console.enabled: true
-    console.path: /h2
   servlet:
     multipart:
       max-file-size: 100MB
       max-request-size: 100MB
 
-#Server Port
 server:
   port: 8080
 
-#Endpoints 
 endpoints:
   restart:
     enabled: true
@@ -40,7 +22,6 @@ endpoints:
   health:
     sensitive: false
 
-#Zuul routes active 
 zuul:
   sensitiveHeaders:
   ignored-headers: Access-Control-Allow-Credentials, Access-Control-Allow-Origin
@@ -57,20 +38,18 @@ zuul:
       path: /api/delivery/**
       serviceId: stationerycontrol-delivery-api
       stripPrefix: false
-
-#Eureka Instance ID
-eureka:
-  client:
-    registerWithEureka: true
-    fetchRegistry: true
-    serviceUrl:
-      defaultZone: http://localhost:8081/eureka/
-  instance:
-    instanceId: ${spring.application.name}:${server.port}
+    township-api:
+      path: /api/township/**
+      serviceId: stationerycontrol-institution-api
+      stripPrefix: false
+    institution-api:
+      path: /api/institution/**
+      serviceId: stationerycontrol-institution-api
+      stripPrefix: false
 
 ribbon:
-    ReadTimeout: 12000
+  ReadTimeout: 12000
 
 jwt:
   secret: secret
-  expiration: 36000
+  expiration: 7200000

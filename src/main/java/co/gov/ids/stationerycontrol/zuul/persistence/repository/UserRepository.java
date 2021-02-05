@@ -18,7 +18,7 @@ public class UserRepository implements IUserRepository {
     }
 
     @Override
-    public Optional<AuthenticationRequest> findById(String id) {
-        return Optional.of(mapper.toUser(repository.findOne(id)));
+    public Optional<AuthenticationRequest> findById(String username) {
+        return Optional.of(mapper.toUser(repository.findOne(username)));
     }
 }

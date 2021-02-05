@@ -8,14 +8,16 @@ import co.gov.ids.stationerycontrol.zuul.domain.dto.AuthenticationRequest;
 public interface UserMapper {
 
     @Mappings({
-            @Mapping(source = "id", target = "id"),
+            @Mapping(source = "username", target = "username"),
             @Mapping(source = "userType", target = "userType"),
             @Mapping(source = "password", target = "password"),
+            @Mapping(source = "enable", target = "enable"),
     })
     AuthenticationRequest toUser(UserEntity entity);
 
     @InheritInverseConfiguration
     @Mappings({
+            @Mapping(target = "identificationCard", ignore = true),
             @Mapping(target = "name", ignore = true),
             @Mapping(target = "email", ignore = true),
             @Mapping(target = "phone", ignore = true),

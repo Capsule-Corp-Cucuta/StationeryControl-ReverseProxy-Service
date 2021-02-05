@@ -32,8 +32,8 @@ public class AuthenticationController {
     @PostMapping
     public ResponseEntity<AuthenticationResponse> login(@RequestBody AuthenticationRequest request) {
         try {
-            manager.authenticate(new UsernamePasswordAuthenticationToken(request.getId(), request.getPassword()));
-            UserDetails userDetails = service.loadUserByUsername(request.getId());
+            manager.authenticate(new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword()));
+            UserDetails userDetails = service.loadUserByUsername(request.getUsername());
             String jwt = jwtUtil.generateToken(userDetails);
             return new ResponseEntity<>(new AuthenticationResponse(jwt, userDetails.getAuthorities()), HttpStatus.OK);
         } catch (BadCredentialsException exception) {

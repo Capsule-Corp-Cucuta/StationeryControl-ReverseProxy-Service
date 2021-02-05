@@ -34,6 +34,14 @@ public class SecurityDetailsService implements UserDetailsService {
             authorities.add(new SimpleGrantedAuthority("USER"));
         }
 
-        return new User(authenticationRequest.getId(), authenticationRequest.getPassword(), authorities);
+        return new User(
+                authenticationRequest.getUsername(),
+                authenticationRequest.getPassword(),
+                authenticationRequest.isEnable(),
+                authenticationRequest.isEnable(),
+                authenticationRequest.isEnable(),
+                authenticationRequest.isEnable(),
+                authorities
+        );
     }
 }

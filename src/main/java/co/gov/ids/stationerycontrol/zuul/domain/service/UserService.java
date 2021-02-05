@@ -14,8 +14,8 @@ public class UserService {
         this.repository = repository;
     }
 
-    public Optional<AuthenticationRequest> findById(String id) {
-        return repository.findById(id);
+    public Optional<AuthenticationRequest> findById(String username) {
+        return repository.findById(username);
     }
 
 }
